@@ -4,15 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Maze Game</title>
+  <title>Canvas Crawler</title>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div style="text-align: center;">
-    <div id="maze-container">
-        <div class="wall"></div>
-    </div>
+  <div id="container">
+    <aside id="top-left"><h2>Find Your Way Through The Lost Woods!</h2></aside>
+    <aside id="top-right"><h2 id="health">❤️❤️❤️</h2></aside>
+    <main>
+        <canvas id="game"><!-- play it, a game --></canvas>
+    </main>
+    <aside id="btm-left"><h2>Items</h2></aside>
+    <aside id="btm-right"><h2 id="status">▲x0 ⚪️x0 🧂x0 🪣x0</h2></aside>
   </div>
-  <script src="main.js"></script>
+  <h3>Game Description:</h3>
+  <p>Your childhood friend Saria is in danger! She's at the forest temple up North fighting alone.
+    You must slash, blast and harness the true power of the Triforce to save your dear friend before it's too late!</p>
+    <h3>Items Guide:</h3>
+    <ul>
+        <li>▲: Triforce Pieces help you through places with a lot of dark presence.</li>
+        <li>⚪️: Bombs allow you to explode your way into places that were previously blocked by giant boulders.</li>
+        <li>🧂: Goron Rock Salt is mined straight from the caverns of Death Mountain, it's great for cooking.</li>
+        <li>🪣: Zora Spring Water is the cleanest water in Hyrule, it's very refreshing and rejuvinating.</li>
+    </ul>
+    <h3>Enemies/Entities Guide:</h3>
+    <ul>
+        <li>🟤: Skull Kids were once children but got lost in these woods, 
+            they are genuinly friendly and like to trade but don't make them mad, you'll die instantly.</li>
+        <li>🔴: Deku Scrubs were greedy adults who sought the power of the Triforce, t
+            he gods punished them and now they're forced to live as monsters. They deal 1 heart of damage.</li>
+        <li>🟠: Deku Babas are Venus Flytraps that mutated due to the surrounding malice, 
+            they shoot seeds from a distance dealing a half heart worth of damage</li>
+    </ul>
+  <script src="test.js"></script>
 </body>
 </html>
