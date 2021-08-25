@@ -1,5 +1,5 @@
 // GLOBAL DOM / VARIABLES
-// let movementDisplay = document.getElementById('movement')
+let movementDisplay = document.getElementById('movement')
 let game = document.getElementById('game')
 let player;
 let skullKid;
@@ -290,6 +290,347 @@ function addNewScrub() {
     return true;
 }
 
+function renderSquares () {
+    const greenSquares = [
+    {
+        x: 125,
+        y: 125,
+        color: '#367b35',
+        width: 30,
+        height: 20,
+    },
+    { 
+        x: 82.5,
+        y: 125,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 82.5,
+        y: 97.5,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 82.5,
+        y: 70,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 82.5,
+        y: 42.5,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 82.5,
+        y: 15,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 125,
+        y: 97.5,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 125,
+        y: 70,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 125,
+        y: 42.5,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 125,
+        y: 15,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 167.5,
+        y: 97.5,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 167.5,
+        y: 70,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 167.5,
+        y: 42.5,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 167.5,
+        y: 15,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 210,
+        y: 97.5,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 210,
+        y: 70,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 210,
+        y: 42.5,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 210,
+        y: 15,
+        color: '#367b35',
+        width: 30,
+        height: 20
+    },
+    {
+        x: 167.5,
+        y: 0,
+        color: "#367b35",
+        width: 30,
+        height: 7.5
+    }
+    ]
+
+    let gSquare = 0;
+    for (let i = 0; i < greenSquares.length; i++) {
+        let object = greenSquares[i];
+        let newSquare = new GreenSquare(object.x, object.y, object.color, object.width, object.height)
+        console.log(newSquare)
+        newSquare.render();
+    }
+
+}
+
+function renderBrownBridges () {
+    const brownBridges = [
+    {
+        x: 131.5,
+        y: 117.5,
+        color: '#89683c',
+        width: 17.5,
+        height: 7.5,
+    },
+    {
+        x: 89,
+        y: 117.5,
+        color: '#89683c',
+        width: 17.5,
+        height: 7.5,
+    },    
+    {
+        x: 89,
+        y: 62.5,
+        color: '#89683c',
+        width: 17.5,
+        height: 7.5,
+    },
+    {
+        x: 131.5,
+        y: 62.5,
+        color: '#89683c',
+        width: 17.5,
+        height: 7.5,
+    },    
+    {
+        x: 216.5,
+        y: 62.5,
+        color: '#89683c',
+        width: 17.5,
+        height: 7.5,
+    },    
+    {
+        x: 112,
+        y: 19,
+        color: '#89683c',
+        width: 13.5,
+        height: 12,
+    },
+    {
+        x: 155,
+        y: 19,
+        color: '#89683c',
+        width: 13.5,
+        height: 12,
+    },
+    {
+        x: 197,
+        y: 19,
+        color: '#89683c',
+        width: 13.5,
+        height: 12,
+    },
+    {
+        x: 112,
+        y: 47,
+        color: '#89683c',
+        width: 13.5,
+        height: 12,
+    },    
+    {
+        x: 197,
+        y: 47,
+        color: '#89683c',
+        width: 13.5,
+        height: 12,
+    },
+    {
+        x: 155,
+        y: 74.5,
+        color: '#89683c',
+        width: 13.5,
+        height: 12,
+    },    
+    {
+        x: 155,
+        y: 102,
+        color: '#89683c',
+        width: 13.5,
+        height: 12,
+    },
+    {
+        x: 112,
+        y: 102,
+        color: '#89683c',
+        width: 13.5,
+        height: 12,
+    },
+    {
+        x: 197,
+        y: 102,
+        color: '#89683c',
+        width: 13.5,
+        height: 12,
+    },    {
+        x: 174.5,
+        y: 90,
+        color: '#89683c',
+        width: 17.5,
+        height: 7.5,
+    },
+    ]
+
+    // let brownBridge = 0;
+    for (let i = 0; i < brownBridges.length; i++) {
+        let object = brownBridges[i];
+        let newBrownBridge = new BrownBridge(object.x, object.y, object.color, object.width, object.height)
+        console.log(newBrownBridge)
+        newBrownBridge.render();
+    }
+
+}
+
+function renderBlackBridges () {
+    const blackBridges = [
+    {
+        x: 131.5, 
+        y: 90, 
+        color: 'black', 
+        width: 17.5, 
+        height: 7.5 
+    },
+    {
+        x: 89, 
+        y: 90, 
+        color: 'black', 
+        width: 17.5, 
+        height: 7.5 
+    },
+    {
+        x: 131.5, 
+        y: 35, 
+        color: 'black', 
+        width: 17.5, 
+        height: 7.5 
+    },
+    {
+        x: 155, 
+        y: 47, 
+        color: 'black', 
+        width: 13.5, 
+        height: 12 
+    },
+    ]
+
+    for (let i = 0; i < blackBridges.length; i++) {
+        let object = blackBridges[i];
+        let newBlackBridge = new BlackBridge(object.x, object.y, object.color, object.width, object.height)
+        console.log(newBlackBridge)
+        newBlackBridge.render();
+    }
+
+}
+
+function renderYellowBridges () {
+    const yellowBridges = [
+    {
+        x: 197,
+        y: 74.5,
+        color: 'yellow',
+        width: 13.5,
+        height: 12
+    },
+    {
+        x: 217,
+        y: 35,
+        color: 'yellow',
+        width: 17.5,
+        height: 7.5
+    },    
+    {
+        x: 174.5,
+        y: 7.5,
+        color: 'yellow',
+        width: 17.5,
+        height: 7.5
+    },
+    ]
+
+for (let i = 0; i < yellowBridges.length; i++) {
+    let object = yellowBridges[i];
+    let newYellowBridge = new YellowBridge(object.x, object.y, object.color, object.width, object.height)
+    console.log(newYellowBridge)
+    newYellowBridge.render();
+}
+
+}
+
+
 //  KEYBOARD INTERACTION LOGIC
 // w - 87 - up
 // a - 65 - left
@@ -301,19 +642,19 @@ function movementHandler (e) {
     switch(e.which) {
         case 87:
             // move hero up
-            player.y - 10 >= 0 ? player.y -= 10 : null;
+            player.y - 27 >= 0 ? player.y -= 27 : null;
             break;
         case 65: 
             // move left
-            player.x - 10 >= 0 ? player.x -= 10 : null;
+            player.x - 42.5 >= 0 ? player.x -= 42.5 : null;
             break;
         case 83:
             // move down
-            player.y + 10 <= game.height ? player.y += 10 : null;
+            player.y + 27 <= game.height ? player.y += 27 : null;
             break;
         case 68:
             // move right
-            player.x + 10 <= game.width ? player.x += 10 : null;
+            player.x + 42.5 <= game.width ? player.x += 42.5 : null;
             break;
     }
 }
@@ -345,142 +686,14 @@ function movementHandler (e) {
  * 
  * */ 
 
-const array = [
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    { 
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    },
-    {
-        x: 125,
-        y: 125,
-        color: '#367b35',
-        width: 30,
-        height: 20
-    }
-]
 
 function gameLoop () {
     // clear the canvas
     ctx.clearRect(0, 0, game.width, game.height);
-    greenSquare.render();
-    brownBridge.render();
-    blackBridge.render();
-    yellowBridge.render();
+    renderSquares();
+    renderBrownBridges();
+    renderBlackBridges();
+    renderYellowBridges();
     redBridge.render();
     blueCircle.render();
     boulder.render();
@@ -529,8 +742,8 @@ window.addEventListener("DOMContentLoaded", (e) => {
     brownBridge = new BrownBridge(131.5, 117.5, '#89683c', 17.5, 7.5);
     blackBridge = new BlackBridge(131.5, 92.5, 'black', 17.5, 7.5);
     yellowBridge = new YellowBridge(131.5, 67.5, 'yellow', 17.5, 7.5);
-    redBridge = new RedBridge(131.5, 42.5, 'red', 17.5, 7.5);
-    blueCircle = new BlueCircle(225, 100, '#1c85c8', 15, 10.5);
+    redBridge = new RedBridge(174.5, 62.5, 'red', 17.5, 7.5);
+    blueCircle = new BlueCircle(220, 75, '#1c85c8', 15, 10.5);
     boulder = new Boulder(50, 100, '#a6a6a6', 10, 7);
 
     const runGame = setInterval(gameLoop, 120);
