@@ -431,7 +431,7 @@ function renderSquares () {
     for (let i = 0; i < greenSquares.length; i++) {
         let object = greenSquares[i];
         let newSquare = new GreenSquare(object.x, object.y, object.color, object.width, object.height)
-        console.log(newSquare)
+        // console.log(newSquare)
         newSquare.render();
     }
 
@@ -549,7 +549,7 @@ function renderBrownBridges () {
     for (let i = 0; i < brownBridges.length; i++) {
         let object = brownBridges[i];
         let newBrownBridge = new BrownBridge(object.x, object.y, object.color, object.width, object.height)
-        console.log(newBrownBridge)
+        // console.log(newBrownBridge)
         newBrownBridge.render();
     }
 
@@ -590,7 +590,7 @@ function renderBlackBridges () {
     for (let i = 0; i < blackBridges.length; i++) {
         let object = blackBridges[i];
         let newBlackBridge = new BlackBridge(object.x, object.y, object.color, object.width, object.height)
-        console.log(newBlackBridge)
+        // console.log(newBlackBridge)
         newBlackBridge.render();
     }
 
@@ -621,12 +621,99 @@ function renderYellowBridges () {
     },
     ]
 
-for (let i = 0; i < yellowBridges.length; i++) {
+    for (let i = 0; i < yellowBridges.length; i++) {
     let object = yellowBridges[i];
     let newYellowBridge = new YellowBridge(object.x, object.y, object.color, object.width, object.height)
-    console.log(newYellowBridge)
+    // console.log(newYellowBridge)
     newYellowBridge.render();
+    }
+
 }
+
+function renderBoulders () {
+    const boulders = [
+        {
+            x: 115,
+            y: 22,
+            color: "#a6a6a6",
+            width: 10,
+            height: 7
+        },
+        {
+            x: 93,
+            y: 60,
+            color: "#a6a6a6",
+            width: 10,
+            height: 7
+        },
+    ]
+
+    for(let i = 0; i < boulders.length; i++) {
+        let object = boulders[i];
+        let newBoulder = new Boulder(object.x, object.y, object.color, object.width, object.height)
+        // console.log(newBoulder)
+        newBoulder.render();
+    }
+
+}
+
+function renderTriforcePieces () {
+    const triforcePieces = [
+        {
+            x: 95,
+            y: 78,
+            color: "#ffde59",
+            width: 5,
+            height: 3.5
+        },        {
+            x: 95,
+            y: 24,
+            color: "#ffde59",
+            width: 5,
+            height: 3.5
+        },
+        {
+            x: 95,
+            y: 106,
+            color: "#ffde59",
+            width: 5,
+            height: 3.5
+        },
+    ]
+
+    for(let i = 0; i < triforcePieces.length; i++) {
+        let object = triforcePieces[i];
+        let newTriforcePiece = new TriforcePiece(object.x, object.y, object.color, object.width, object.height)
+        // console.log(newTriforcePiece)
+       newTriforcePiece.render();
+    }
+
+}
+
+function renderBombs () {
+    const bombs = [
+        {
+            x: 223,
+            y: 100,
+            color: "#545454",
+            width: 5,
+            height: 3.5
+        },
+        {
+            x: 223,
+            y: 110,
+            color: "#545454",
+            width: 5,
+            height: 3.5
+        },
+    ]
+
+    for(let i = 0; i < bombs.length; i++) {
+        let object = bombs[i];
+        let newBomb = new Bomb(object.x, object.y, object.color, object.width, object.height)
+        // console.log(newBomb)
+       newBomb.render();
+    }
 
 }
 
@@ -657,6 +744,8 @@ function movementHandler (e) {
             player.x + 42.5 <= game.width ? player.x += 42.5 : null;
             break;
     }
+    console.log(player.x);
+    console.log(player.y);
 }
 
 // ====================== GAME PROCESSES ======================= //
@@ -694,22 +783,22 @@ function gameLoop () {
     renderBrownBridges();
     renderBlackBridges();
     renderYellowBridges();
+    renderBoulders();
     redBridge.render();
     blueCircle.render();
-    boulder.render();
-    triforcePiece.render();
-    bomb.render();
+    renderTriforcePieces();
+    renderBombs();
     ocarina.render();
     if (player.alive) { // 
         // render shrek
         player.render();
         // @todo - check collision (detchHit -> f)
-        let hit = detectHit(dekuScrub, player);
+       // let hit = detectHit(dekuScrub, player);
     }
     // render hero
-    dekuScrub.render();
-    dekuBaba.render();
-    skullKid.render();
+    // dekuScrub.render();
+    // dekuBaba.render();
+    // skullKid.render();
 }
 
 // ====================== COLLISION DETECTION ======================= //
@@ -727,6 +816,11 @@ function detectHit (enemy, player) {
     console.log(player)
 }
 
+function detectBridge (player, brownBridge) {
+    console.log(player)
+    console.log(brownBridge)
+}
+
 // ====================== PAINT INTIAL SCREEN ======================= //
 
 // EVENT LISTENERS
@@ -737,7 +831,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
     skullKid = new SkullKid(175, 100, '#524031', 5, 3.5);
     triforcePiece = new TriforcePiece(75, 75, '#ffde59', 5, 3.5);
     bomb = new Bomb(200, 75, '#545454', 5, 3.5);
-    ocarina = new Ocarina(225, 50, '#d6c27c', 5, 3.5);
+    ocarina = new Ocarina(223, 24, '#d6c27c', 5, 3.5);
     greenSquare = new GreenSquare(125, 125, '#367b35', 30, 20);
     brownBridge = new BrownBridge(131.5, 117.5, '#89683c', 17.5, 7.5);
     blackBridge = new BlackBridge(131.5, 92.5, 'black', 17.5, 7.5);
