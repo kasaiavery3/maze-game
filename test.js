@@ -23,6 +23,104 @@ ctx.fillStyle = 'white';
 ctx.strokeStyle = 'red';
 ctx.lineWidth = 5;
 
+const squareCoordinates = [
+    {
+        square: 1,
+        x: 95.5,
+        y: 133,
+    },
+    {
+        square: 2,
+        x: 138,
+        y: 133,
+    },
+    {
+        square: 3,
+        x: 95.5,
+        y: 106,
+    },
+    {
+        square: 4,
+        x: 138,
+        y: 106,
+    },
+    {
+        square: 5,
+        x: 180.5,
+        y: 106,
+    },
+    {
+        square: 6,
+        x: 223,
+        y: 106,
+    },
+    {
+        square: 7,
+        x: 95.5,
+        y: 79,
+    },
+    {
+        square: 8,
+        x: 138,
+        y: 79,
+    },
+    {
+        square: 9,
+        x: 180.5,
+        y: 79,
+    },
+    {
+        square: 10,
+        x: 223,
+        y: 79,
+    },
+    {
+        square: 11,
+        x: 95.5,
+        y: 52,
+    },
+    {
+        square: 12,
+        x: 138,
+        y: 52,
+    },
+    {
+        square: 13,
+        x: 180.5,
+        y: 52,
+    },
+    {
+        square: 14,
+        x: 223,
+        y: 52,
+    },
+    {
+        square: 15,
+        x: 95.5,
+        y: 25,
+    },
+    {
+        square: 16,
+        x: 138,
+        y: 25,
+    },
+    {
+        square: 17,
+        x: 180.5,
+        y: 25,
+    },
+    {
+        square: 18,
+        x: 223,
+        y: 25,
+    },
+    {
+        square: 19,
+        x: 53,
+        y: 25,
+    }
+]
+
 // ====================== ENTITIES ======================= //
 class Player {
     constructor(x, y, color, width, height) {
@@ -32,6 +130,15 @@ class Player {
         this.width = width;
         this.height = height;
         this.alive = true;
+        this.currentLocation = 2;
+        this.previousLocation = null;
+        this.triforcePiece = 0;
+        this.reset = false;
+        this.bomb = 0;
+        this.ocarina = 0;
+        this.goronSpice = 0;
+        this.zoraSpringWater = 0;
+        
 
 
         this.render = () => {
@@ -419,11 +526,11 @@ function renderSquares () {
         height: 20
     },
     {
-        x: 167.5,
-        y: 0,
+        x: 40,
+        y: 15,
         color: "#367b35",
         width: 30,
-        height: 7.5
+        height: 20
     }
     ]
 
@@ -613,11 +720,11 @@ function renderYellowBridges () {
         height: 7.5
     },    
     {
-        x: 174.5,
-        y: 7.5,
+        x: 70,
+        y: 19.25,
         color: 'yellow',
-        width: 17.5,
-        height: 7.5
+        width: 13.5,
+        height: 12
     },
     ]
 
@@ -717,6 +824,67 @@ function renderBombs () {
 
 }
 
+function decideFate () {
+
+
+    if (player.currentLocation === 7 && player.previousLocation === 3) {
+        console.log('back to square 2')
+        player.newLocation = 2
+    } else if (player.currentLocation === 3 && player.previousLocation === 7) {
+        console.log('back to square 2')
+    } else if (player.currentLocation === 8 && player.previousLocation === 4) {
+        console.log('back to square 2')
+    } else if (player.currentLocation === 4 && player.previousLocation === 8) {
+        console.log('back to square 2')
+    } else if (player.currentLocation === 12 && player.previousLocation === 16) {
+        console.log('back to square 2')
+    } else if (player.currentLocation === 16 && player.previousLocation === 12) {
+        console.log('back to square 2')
+    } else if (player.currentLocation === 12 && player.previousLocation === 13) {
+        console.log('back to square 2')
+    } else if (player.currentLocation === 13 && player.previousLocation === 12) {
+        console.log('back to square 2')
+    } else if (player.currentLocation === 13 && player.previousLocation === 9) {
+        console.log('Goron Spice', player.goronSpice)
+        player.goronSpice = 1;
+    } else if (player.currentLocation === 9 && player.previousLocation === 13) {
+        console.log('Goron Spice', player.goronSpice)
+        player.goronSpice = 1;
+    } else if (player.currentLocation === 10 && player.previousLocation === 9) {
+        console.log('you need a triforce piece')
+    } else if (player.currentLocation === 9 && player.previousLocation === 10) {
+        console.log('you need a triforce piece')
+    } else if (player.currentLocation === 18 && player.previousLocation === 14) {
+        console.log('you need a triforce piece')
+    } else if (player.currentLocation === 14 && player.previousLocation === 18) {
+        console.log('you need a triforce piece')
+    } else if (player.currentLocation === 19 && player.previousLocation === 15) {
+        console.log('you need a triforce piece')
+        alert('WINNER')
+        location.reload();
+    } else if (player.currentLocation === 15 && player.previousLocation === 19) {
+        console.log('you need a triforce piece')
+    } else if (player.currentLocation === 10) {
+        console.log('+1 Zora Spring Water')
+    } else if (player.currentLocation === 7 && player.previousLocation === 11) {
+        console.log('you need a bomb')
+    } else if (player.currentLocation === 15 && player.previousLocation === 16) {
+        console.log('you need a bomb')
+    } else if (player.currentLocation === 7 || player.currentLocation === 15) {
+        console.log('+1 Triforce Piece')
+    } else if (player.currentLocation === 3 && player.ocarina === 1) {
+        player.triforcePiece = 1;
+    } else if (player.currentLocation === 6 && player.goronSpice === 1) {
+        console.log('Bombs', player.bomb)
+       player.bomb = 1;
+    } else if (player.currentLocation === 18) {
+        console.log('Ocarina', player.ocarina)
+        player.ocarina = 1;
+    } else {
+        console.log()
+    }
+
+}
 
 //  KEYBOARD INTERACTION LOGIC
 // w - 87 - up
@@ -730,18 +898,26 @@ function movementHandler (e) {
         case 87:
             // move hero up
             player.y - 27 >= 0 ? player.y -= 27 : null;
+            detectSquare();
+            decideFate();
             break;
         case 65: 
             // move left
             player.x - 42.5 >= 0 ? player.x -= 42.5 : null;
+            detectSquare();
+            decideFate();
             break;
         case 83:
             // move down
             player.y + 27 <= game.height ? player.y += 27 : null;
+            detectSquare();
+            decideFate();
             break;
         case 68:
             // move right
             player.x + 42.5 <= game.width ? player.x += 42.5 : null;
+            detectSquare();
+            decideFate();
             break;
     }
     console.log(player.x);
@@ -811,14 +987,37 @@ function gameLoop () {
  * @todo if the right of one is right of the others left
 */
 
-function detectHit (enemy, player) {
+function detectHit(enemy, player) {
     console.log(enemy)
     console.log(player)
 }
 
-function detectBridge (player, brownBridge) {
+function detectBridge(player, brownBridge) {
     console.log(player)
     console.log(brownBridge)
+}
+
+function detectSquare() {
+    player.previousLocation = player.currentLocation
+    console.log(squareCoordinates)
+    console.log(player.x)
+    console.log(player.y)
+    let filterLocation = squareCoordinates.filter(s => {
+        console.log(s)
+        let x = player.x
+        let y = player.y
+        if (s.x === player.x && s.y === player.y) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+    let newLocation = filterLocation[0].square
+    player.currentLocation = newLocation;
+    console.log('Previous Location', player.previousLocation)
+    console.log('Current Location', player.currentLocation)
+    console.log('New Location', newLocation)
+    
 }
 
 // ====================== PAINT INTIAL SCREEN ======================= //
